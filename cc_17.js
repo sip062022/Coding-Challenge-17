@@ -15,6 +15,19 @@ class Customer { // adds customer class
         return this.purchaseHistory.reduce((total, amount) => total + amount, 0); // sums values in the array
     }
 }
+    // Task 3: Create a VIPCustomer Class (extends Customer) //
+
+    class VIPCustomer extends Customer { // creates a class to extent customer class
+        constructor (name, email, vipLevel = 'Gold') { // defines properties
+            super(name, email); // calls parent constructor
+            this.vipLevel = vipLevel // creates VIP level
+        }
+
+        getTotalSpent () { // overrides the previous getTotalSpent method for when there is VIP level
+            const totalSpent = super.getTotalSpent(); // pulls in total amount spent from the parent
+            return totalSpent * 1.1; // adds 10% bonus
+        }
+    }
 
 // Task 2: Create a Sales Rep Class //
 
@@ -37,3 +50,6 @@ class salesRep { // creates salesRep class
         }
     }
 }
+
+// Task 3: Create a VIP Customer Class //
+// See within task 1 //

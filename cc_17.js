@@ -53,3 +53,17 @@ class salesRep { // creates salesRep class
 
 // Task 3: Create a VIP Customer Class //
 // See within task 1 //
+
+// Task 4: Build a Client Report System //
+
+const totalRevenue = salesRep.clients.reduce((total, client) => total + client.getTotalSpent(), 0); // adds total revenue for all customers
+const highSpendingCustomers = salesRep.clients.filter(client => client.getTotalSpent() > 500); // finds all customers who spend >$500
+
+const customerReport = salesRep.clients.map(client => ({ // set up const and arrow function
+    name: client.name; // defines name as client name
+    totalSpent: client.getTotalSpent(),  // defines total spent as the method of getTotalSpent()
+}));
+
+console.log(`Total Revenue All Customers: $${totalRevenue}`); // console logs total revenue
+console.log(`High SPending Customers: ${highSpendingCustomers}`); // console logs high spending customers
+console.log(`Customer Report: ${customerReport}`); // console logs customer report
